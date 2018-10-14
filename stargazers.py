@@ -3,7 +3,7 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
-page_range = [25, 100]
+page_range = [36, 100]
 limit_cache_num = 20
 
 list_collect = []
@@ -33,7 +33,7 @@ while page_range[0] < page_range[1]:
 			links = so.find_all('a', "u-url")
 			for l in links:
 				link = links[0].string
-				if 'linkedin.com' in link:
+				if 'linkedin' in link:
 					continue
 				elif link == user_link:
 					continue
