@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 
 page_range = [25, 100]
-limit_cache_num = 20
+limit_cache_num = 2
 
 list_collect = []
 def open_in_browser():
@@ -12,8 +12,8 @@ def open_in_browser():
 	tot = len(list_collect)
 	for idx, link in enumerate(list_collect):
 		print("[%d / %d] %s" % (idx, tot, link))
-	os.system('chromium ' + link)
-	time.sleep(1.5)
+		os.system('chromium ' + link)
+		time.sleep(1)
 	list_collect = []
 
 while page_range[0] < page_range[1]:
