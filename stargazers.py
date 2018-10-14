@@ -3,7 +3,7 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
-page_range = [36, 100]
+page_range = [37, 100]
 limit_cache_num = 20
 
 list_collect = []
