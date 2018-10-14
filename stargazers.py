@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 
 page_range = [25, 100]
-limit_cache_num = 2
+limit_cache_num = 20
 
 list_collect = []
 def open_in_browser():
@@ -54,7 +54,4 @@ while page_range[0] < page_range[1]:
 			quit();
 		elif inp == 'open':
 			open_in_browser()
-		else:
-			print('starting from ' + str(save_idx))
-			continue
 open_in_browser()
