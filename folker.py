@@ -1,15 +1,17 @@
 import os
+import sys
 import time
 import requests
 from bs4 import BeautifulSoup
 
-page_range = [2, 12]
+page_range = [11, 13]
 
 while page_range[0] < page_range[1]:
 	try:
 		page = page_range[0]
 		page_link = 'https://github.com/MSWorkers/support.996.ICU/pulls?q=is%3Apr+is%3Aclosed&page=' + str(page)
-		#print(page_link)
+		print(page_link)
+		sys.stdout.flush()
 		r = requests.get(page_link)
 		soup = BeautifulSoup(r.text, 'html.parser')
 		results = soup.select("span.opened-by a")
@@ -23,6 +25,7 @@ while page_range[0] < page_range[1]:
 			if len(link) > 0:
 				l = str(link[0].text) + '#' + str(user_link)
 				print(l)
+				sys.stdout.flush()
 		page_range[0] += 1
 	except (Exception, KeyboardInterrupt):
 		print('Ctrl-C interrupt, enter to continue ...')
